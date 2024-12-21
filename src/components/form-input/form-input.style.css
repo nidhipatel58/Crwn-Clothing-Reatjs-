@@ -1,0 +1,69 @@
+.form-input-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #888;
+  transition: all 0.3s ease;
+}
+
+label.shrink {
+  top: -18px;
+  font-size: 18px;
+  color: #1f1f20;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 10px;
+  padding-top: 24px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  display: block;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #1d4ed8; /* Blue border on focus */
+  box-shadow: 0 0 5px rgba(29, 78, 216, 0.5); /* Light blue shadow */
+}
+
+.form-input:focus + label,
+.form-input.shrink + label {
+  top: 0;
+  font-size: 0.75rem;
+  color: #1d4ed8; /* Blue color */
+}
+
+.group {
+  position: relative;
+  margin: 45px 0;
+}
+
+/* Apply shrink effect when input is focused or has a value */
+.group .form-input:focus + label,
+.group .form-input.shrink + label {
+  top: 0;
+  font-size: 0.75rem;
+  color: #1d4ed8; /* Blue color */
+}
+
+/* Optional: Adding a custom mixin for the shrink effect (if using SCSS) */
+@mixin shrinklabel {
+  top: 0;
+  font-size: 0.75rem;
+  color: #1d4ed8; /* Blue color */
+}
+
+.group:focus-within .form-input-label {
+  @include shrinklabel;
+}
